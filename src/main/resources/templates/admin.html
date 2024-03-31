@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+<body>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>User</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td>
+                <a th:href="@{'/admin_user/' + ${user.getId()}}">
+                    <span th:text="${user.username}"></span>
+                    <span th:each="role : ${user.getRoles()}">
+                        <span th:text="${role.getRoleName()}"></span>
+                    </span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <hr>
+
+    <button type="submit"><a href="/admin/registration">Registration new user</a></button>
+    <br>
+    <br>
+    <button><a href="/logout">logout</a></button>
+
+</body>
+</html>

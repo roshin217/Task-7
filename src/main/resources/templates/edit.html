@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{'/admin_user/' + ${user.id}}" th:object="${user}">
+    <label for="username">Enter username: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <br>
+    <label for="password">Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <br>
+    <div>
+        <label for="roles">Roles:</label>
+        <select id="roles" name="roles" multiple th:field="*{roles}">
+            <option th:each="role : ${allRoles}" th:value="${role.id}" th:text="${role.roleName}"></option>
+        </select>
+    </div>
+    <br>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>

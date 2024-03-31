@@ -28,25 +28,16 @@
     </table>
 
     <br>
+    <hr>
 
-<!--    <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">-->
-<!--        <form th:method="GET" th:action="@{'/user' + ${user.id} + '/edit'}">-->
-<!--            <input type="submit" value="Update user"/>-->
-<!--        </form>-->
-
-<!--        <form th:method="DELETE" th:action="'/user' + ${user.id}">-->
-<!--            <input type="submit" value="Delete user"/>-->
-<!--        </form>-->
-<!--    </div>-->
-
-<!--    <form th:method="GET" th:action="@{'/user/' + ${user.id} + '/edit'}">-->
-<!--        <input type="submit" value="Update user"/>-->
-<!--    </form>-->
-
-<!--    <form th:method="DELETE" th:action="'/user/' + ${user.id}">-->
-<!--        <input type="submit" value="Delete user"/>-->
-<!--    </form>-->
-
+    <form th:method="GET" th:action="@{'/admin_user/' + ${user.id} + '/edit'}">
+        <input type="submit" value="Update user"/>
+    </form>
+    <br>
+    <form th:method="DELETE" th:action="@{'/admin_user/' + ${user.id}}">
+        <input type="submit" value="Delete user"/>
+    </form>
+    <br>
     <button><a href="/logout">logout</a></button>
 </body>
 </html>
